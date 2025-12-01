@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Guesser</title>
+    <style>
+        body { background-color: #1a1a1a; color: #00ff41; font-family: monospace; text-align: center; margin-top: 50px; }
+        input { padding: 10px; font-size: 16px; }
+        button { padding: 10px 20px; background-color: #00ff41; border: none; font-weight: bold; cursor: pointer; }
+        button:hover { background-color: white; }
+        #message { margin-top: 20px; font-size: 1.2em; }
+        a { color: white; text-decoration: none; display: block; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <h1>CYBER GUESSER</h1>
+    <p>I am thinking of a number between 1 and 100.</p>
+    
+    <input type="number" id="userGuess" placeholder="Enter number...">
+    <button onclick="checkGuess()">HACK</button>
+    
+    <p id="message"></p>
+
+    <a href="index.html">Back to Portal</a>
+
+    <script>
+        // Game Logic
+        let targetNumber = Math.floor(Math.random() * 100) + 1;
+        
+        function checkGuess() {
+            let guess = document.getElementById('userGuess').value;
+            let msg = document.getElementById('message');
+
+            if (guess == targetNumber) {
+                msg.innerHTML = "ACCESS GRANTED! You guessed the number.";
+                msg.style.color = "white";
+            } else if (guess > targetNumber) {
+                msg.innerHTML = "Too High! Try again.";
+            } else {
+                msg.innerHTML = "Too Low! Try again.";
+            }
+        }
+    </script>
+</body>
+</html>
